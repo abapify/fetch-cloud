@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_ENHO" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <TOOL>BADI_IMPL</TOOL>
+   <SHORTTEXT>Cloud-compatible fetch API implementation</SHORTTEXT>
+   <SPOT_NAME>ZFETCH_BADI_SPOT</SPOT_NAME>
+   <IMPL>
+    <ENH_BADI_IMPL_DATA>
+     <SPOT_NAME>ZFETCH_BADI_SPOT</SPOT_NAME>
+     <BADI_NAME>ZFETCH_REQUEST_BADI</BADI_NAME>
+     <IMPL_NAME>ZFETCH_REQUEST_BADI_CLOUD</IMPL_NAME>
+     <IMPL_CLASS>ZCL_FETCH_REQUEST_BADI_CLOUD</IMPL_CLASS>
+     <ACTIVE>X</ACTIVE>
+     <FILTER_ROOT>
+      <ENH_BADIIMPL_FILTER_ROOT>
+       <ROOT>1</ROOT>
+       <FILTERS>
+        <ENH_BADIIMPL_FILTER_ID>
+         <FILTER_NAME>RELEASE</FILTER_NAME>
+         <ID>1</ID>
+        </ENH_BADIIMPL_FILTER_ID>
+       </FILTERS>
+      </ENH_BADIIMPL_FILTER_ROOT>
+     </FILTER_ROOT>
+     <FILTER_VALUES>
+      <ENH_BADIIMPL_FILTER_VALUE>
+       <ID>1</ID>
+       <FILTER_NAME>RELEASE</FILTER_NAME>
+       <FILTER_TYPE>S</FILTER_TYPE>
+       <COMPARE>&lt;=</COMPARE>
+       <FILTER_STRING_VALUE1>793</FILTER_STRING_VALUE1>
+      </ENH_BADIIMPL_FILTER_VALUE>
+     </FILTER_VALUES>
+     <FILTERS>
+      <ENH_BADI_FILTER_IMPL>
+       <DISJ_IDX>1</DISJ_IDX>
+       <CONJ_IDX>1</CONJ_IDX>
+       <FILTER_NAME>RELEASE</FILTER_NAME>
+       <FILTER_TYPE>S</FILTER_TYPE>
+       <COMPARE>&lt;=</COMPARE>
+       <FILTER_STRING_VALUE1>793</FILTER_STRING_VALUE1>
+      </ENH_BADI_FILTER_IMPL>
+     </FILTERS>
+     <LOCKED_IN_CUSTOMIZING>X</LOCKED_IN_CUSTOMIZING>
+    </ENH_BADI_IMPL_DATA>
+   </IMPL>
+  </asx:values>
+ </asx:abap>
+</abapGit>
