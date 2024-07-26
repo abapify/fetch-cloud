@@ -1,14 +1,13 @@
-class zcl_fetch_request_badi_cloud definition
+class zcl_fetch_badi_cloud definition
+  inheriting from zcl_fetch_badi_base
   public
   final
   create public .
 
   public section.
 
-    interfaces if_badi_interface .
-    interfaces zif_fetch_request_badi .
-    interfaces zif_throw .
-    aliases throw for zif_throw~throw.
+    interfaces zif_fetch_badi .
+
   protected section.
   private section.
 
@@ -24,10 +23,10 @@ endclass.
 
 
 
-class zcl_fetch_request_badi_cloud implementation.
+class zcl_fetch_badi_cloud implementation.
 
 
-  method zif_fetch_request_badi~fetch.
+  method zif_fetch_badi~fetch.
 
     data(lo_destination) = get_destination( request->destination ).
 
@@ -61,11 +60,6 @@ class zcl_fetch_request_badi_cloud implementation.
     response = new lcl_response( lo_response ).
 
 
-  endmethod.
-  method zif_throw~throw.
-    new zcl_throw( )->throw(
-      message = message
-    ).
   endmethod.
 
   method get_destination.
