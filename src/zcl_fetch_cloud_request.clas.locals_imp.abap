@@ -1,44 +1,6 @@
 *"* use this source file for the definition and implementation of
 *"* local helper classes, interface definitions and type
 *"* declarations
-class lcl_response definition.
-  public section.
-    interfaces zif_fetch_response.
-    methods constructor importing response type ref to if_web_http_response.
-  private section.
-    data response type ref to if_web_http_response.
-endclass.
-
-class lcl_response implementation.
-
-  method constructor.
-    super->constructor( ).
-    me->response = response.
-
-    data(status) = response->get_status( ).
-    me->zif_fetch_response~status = status-code.
-    me->zif_fetch_response~status_text = status-reason.
-
-  endmethod.
-
-  method zif_fetch_response~body.
-    result = me->response->get_binary( ).
-  endmethod.
-
-  method zif_fetch_response~text.
-    result = me->response->get_text( ).
-  endmethod.
-
-  method zif_fetch_response~header.
-    value = me->response->get_header_field( i_name = name ).
-  endmethod.
-
-  method zif_fetch_response~headers.
-    headers = corresponding #( me->response->get_header_fields( ) ).
-  endmethod.
-
-endclass.
-
 class path definition.
   public section.
     types paths_tt type table of string with empty key.
@@ -100,12 +62,7 @@ class path implementation.
       result = sep && result.
     endif.
 
-
-
-
-
   endmethod.
-
 
   method is_absolute.
     r_result = xsdbool( i_path cp '/*' ).

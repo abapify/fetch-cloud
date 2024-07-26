@@ -3,9 +3,9 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <VSEOCLASS>
-    <CLSNAME>ZCL_FETCH_BADI_CLOUD</CLSNAME>
+    <CLSNAME>ZCL_FETCH_CLOUD_CLIENT</CLSNAME>
     <LANGU>E</LANGU>
-    <DESCRIPT>Cloud-compatible implementation</DESCRIPT>
+    <DESCRIPT>Cloud-compatible fetch client</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
