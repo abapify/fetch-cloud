@@ -7,8 +7,9 @@ inheriting from zcl_fetch_delegate
   public section.
     interfaces zif_throw.
     aliases throw for zif_throw~throw.
-  protected section.
     methods client redefinition.
+  protected section.
+
   private section.
     methods get_destination importing destination type ref to zif_fetch_destination returning value(result) type ref to if_http_destination
                                                                                     raising
@@ -38,6 +39,10 @@ class zcl_fetch_cloud_delegate implementation.
         data(lo_rfc_dest) = cast zif_fetch_destination_rfc( destination ).
         result = cl_http_destination_provider=>create_by_destination( i_destination = lo_rfc_dest->destination ).
 
+       when destination->destination_types-cloud.
+
+        data(lo_cloud_dest) = cast zif_fetch_destination_cloud( destination ).
+        result = cl_http_destination_provider=>create_by_cloud_destination( lo_cloud_dest->destination ).
       when others.
         throw( 'Not supported destination type' ).
     endcase.

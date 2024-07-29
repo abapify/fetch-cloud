@@ -24,10 +24,6 @@ class zcl_fetch_cloud_request implementation.
     me->http_request->set_binary( body ).
   endmethod.
 
-  method zif_fetch_request_setter~destination.
-    " do nothing here
-  endmethod.
-
   method zif_fetch_request_setter~headers.
     me->http_request->set_header_fields(
       exporting
