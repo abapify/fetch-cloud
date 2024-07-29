@@ -19,7 +19,7 @@ class zcl_fetch_cloud_client implementation.
 
   method zif_fetch_client~fetch.
     " execute
-    data(method) = get_method( request->method ).
+    data(method) = get_method( request->method( ) ).
     data(http_response) = me->http_client->execute( method ).
     response = new zcl_fetch_cloud_response( http_response = http_response ).
   endmethod.

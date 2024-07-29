@@ -9,6 +9,7 @@ class zcl_fetch_cloud_request definition
   protected section.
   private section.
     data http_request type ref to if_web_http_request.
+    data method type string.
 endclass.
 
 class zcl_fetch_cloud_request implementation.
@@ -32,7 +33,8 @@ class zcl_fetch_cloud_request implementation.
   endmethod.
 
   method zif_fetch_request_setter~method.
-    me->zif_fetch_request~method = method.
+    " it's not stored in the request but provided during execute as input parameter
+    me->method = method.
   endmethod.
 
   method zif_fetch_request_setter~path.
@@ -45,6 +47,44 @@ class zcl_fetch_cloud_request implementation.
                   ( current_path )
                   ( path ) ) ) ).
     endif.
+  endmethod.
+
+  method zif_fetch_request_setter~header.
+
+    me->http_request->set_header_field(
+      exporting
+        i_name  = name
+        i_value = value
+    ).
+
+  endmethod.
+
+  method zif_fetch_entity_readable~body.
+    result = me->http_request->get_binary( ).
+  endmethod.
+
+  method zif_fetch_entity_readable~header.
+    value =  me->http_request->get_header_field( name ).
+  endmethod.
+
+  method zif_fetch_entity_readable~headers.
+    headers = corresponding #( me->http_request->get_header_fields( ) ).
+  endmethod.
+
+  method zif_fetch_request~method.
+    result = me->method.
+  endmethod.
+
+  method zif_fetch_request~path.
+    result = me->zif_fetch_entity_readable~header( '~request_uri' ).
+  endmethod.
+
+  method zif_fetch_entity_readable~text.
+    result = me->http_request->get_text( ).
+  endmethod.
+
+  method zif_fetch_entity_writeable~text.
+    me->http_request->set_text( text ).
   endmethod.
 
 endclass.
