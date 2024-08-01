@@ -5,8 +5,7 @@ inheriting from zcl_fetch_delegate
   create private global friends zcl_fetch_cloud_badi .
 
   public section.
-    interfaces zif_throw.
-    aliases throw for zif_throw~throw.
+
     methods client redefinition.
   protected section.
 
@@ -55,9 +54,6 @@ class zcl_fetch_cloud_delegate implementation.
         throw( 'Not supported destination type' ).
     endcase.
 
-  endmethod.
-  method zif_throw~throw.
-    new zcl_throw( )->throw( message ).
   endmethod.
 
 endclass.
